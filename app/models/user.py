@@ -167,18 +167,20 @@ class User(db.Document):
         csv_file = UnicodeWriter(open(os.path.join(current_app.config['REPORTS_DIR'], filename), "w"))
 
         csv_file.writerow(['User ID',
-                           'Sex',
-                           'Birthdate',
-                           'Signature',
+                          # fields Sex, Birthdate, Signature removed by request from V. von Wyl
+                          # see: https://www.s3it.uzh.ch/help/issue5014
+                           #'Sex',
+                           #'Birthdate',
+                           #'Signature',
                            'Physician Contact Permitted',
                            'Medical Record Abstraction',
                            'Data Exchange Cohort',
                            'Informed Consent'])
         for item in data:
             csv_file.writerow([item['uniqueID'],
-                               item['sex'],
-                               item['birthdate'],
-                               item['signature'],
+                               #item['sex'],
+                               #item['birthdate'],
+                               #item['signature'],
                                item['physician_contact_permitted'],
                                item['medical_record_abstraction'],
                                item['data_exchange_cohort'],
